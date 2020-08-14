@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { NgxEchartsModule } from 'ngx-echarts';
 
@@ -12,17 +17,15 @@ import { DoubleBarChartComponent } from './components/double-bar-chart/double-ba
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 
 @NgModule({
-  declarations: [
-    LogsComponent,
-    MetricsComponent,
-    BalancesChartComponent,
-    ProposedMissedChartComponent,
-    DoubleBarChartComponent,
-    PieChartComponent,
-  ],
+  declarations: [LogsComponent, MetricsComponent, BalancesChartComponent, ProposedMissedChartComponent, DoubleBarChartComponent, PieChartComponent],
   imports: [
     CommonModule,
     SharedModule,
+    MatButtonModule,
+    MatIconModule,
+    MatGridListModule,
+    MatCardModule,
+    MatProgressBarModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts'),
     })
