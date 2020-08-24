@@ -7,7 +7,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   submitted: boolean;
@@ -37,7 +36,7 @@ export class LoginComponent implements OnInit {
     // Redirect to dashboard by default unless a different
     // return url is set in the query parameters.
     this.route.queryParams
-      .subscribe(params => this.returnUrl = params.return || '/onboarding/wallet');
+      .subscribe(params => this.returnUrl = params.return || '/dashboard/gains-and-losses');
   }
 
   onSubmit() {
