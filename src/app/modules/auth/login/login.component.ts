@@ -36,28 +36,29 @@ export class LoginComponent implements OnInit {
     // Redirect to dashboard by default unless a different
     // return url is set in the query parameters.
     this.route.queryParams
-      .subscribe(params => this.returnUrl = params.return || '/dashboard/gains-and-losses');
+      .subscribe(params => this.returnUrl = params.return || '/onboarding/wallet');
   }
 
   onSubmit() {
     this.submitted = true;
-    if (this.loginForm.controls.password.errors) {
-      return;
-    }
-    const password = this.loginForm.get('password').value as string;
-    this.loading = true;
-    this.authService.login(password).subscribe(
-      () => {
-        this.loading = false;
-        this.router.navigateByUrl(this.returnUrl);
-      },
-      (err) => {
-        this.loading = false;
-        this.snackBar.open(err, 'Close', {
-          duration: 2000,
-        });
-        console.error(err);
-      }
-    );
+    this.router.navigateByUrl('/onboarding/wallet');
+    // if (this.loginForm.controls.password.errors) {
+    //   return;
+    // }
+    // const password = this.loginForm.get('password').value as string;
+    // this.loading = true;
+    // this.authService.login(password).subscribe(
+    //   () => {
+    //     this.loading = false;
+    //     this.router.navigateByUrl(this.returnUrl);
+    //   },
+    //   (err) => {
+    //     this.loading = false;
+    //     this.snackBar.open(err, 'Close', {
+    //       duration: 2000,
+    //     });
+    //     console.error(err);
+    //   }
+    // );
   }
 }
